@@ -1,0 +1,1554 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NEWCO7CORE.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="NEWCO7COREStoreContainer">
+    <EntitySet Name="Users" EntityType="NEWCO7CORE.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Passwords" EntityType="NEWCO7CORE.Store.Passwords" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Projects" EntityType="NEWCO7CORE.Store.Projects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Jobs" EntityType="NEWCO7CORE.Store.Jobs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Campaigns" EntityType="NEWCO7CORE.Store.Campaigns" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Referrals" EntityType="NEWCO7CORE.Store.Referrals" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Teams" EntityType="NEWCO7CORE.Store.Teams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products" EntityType="NEWCO7CORE.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Services" EntityType="NEWCO7CORE.Store.Services" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Accounts" EntityType="NEWCO7CORE.Store.Accounts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Subscribers" EntityType="NEWCO7CORE.Store.Subscribers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Opportunities" EntityType="NEWCO7CORE.Store.Opportunities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Reports" EntityType="NEWCO7CORE.Store.Reports" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Segmentations" EntityType="NEWCO7CORE.Store.Segmentations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tasks" EntityType="NEWCO7CORE.Store.Tasks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Associations" EntityType="NEWCO7CORE.Store.Associations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CostCodeOfAccounts" EntityType="NEWCO7CORE.Store.CostCodeOfAccounts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ScopeChanges" EntityType="NEWCO7CORE.Store.ScopeChanges" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users_Leads" EntityType="NEWCO7CORE.Store.Users_Leads" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users_SalesUsers" EntityType="NEWCO7CORE.Store.Users_SalesUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tasks_ProjectTasks" EntityType="NEWCO7CORE.Store.Tasks_ProjectTasks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tasks_JobTasks" EntityType="NEWCO7CORE.Store.Tasks_JobTasks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users_Customers" EntityType="NEWCO7CORE.Store.Users_Customers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserTeam" EntityType="NEWCO7CORE.Store.UserTeam" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UserLeads" Association="NEWCO7CORE.Store.UserLeads">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Leads" EntitySet="Users_Leads" />
+    </AssociationSet>
+    <AssociationSet Name="UserSalesUsers" Association="NEWCO7CORE.Store.UserSalesUsers">
+      <End Role="User" EntitySet="Users" />
+      <End Role="SalesUsers" EntitySet="Users_SalesUsers" />
+    </AssociationSet>
+    <AssociationSet Name="UserPasswords" Association="NEWCO7CORE.Store.UserPasswords">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Passwords" EntitySet="Passwords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTeam_User" Association="NEWCO7CORE.Store.FK_UserTeam_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserTeam" EntitySet="UserTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTeam_Team" Association="NEWCO7CORE.Store.FK_UserTeam_Team">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="UserTeam" EntitySet="UserTeam" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectTasksProjects" Association="NEWCO7CORE.Store.ProjectTasksProjects">
+      <End Role="ProjectTasks" EntitySet="Tasks_ProjectTasks" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="JobsJobTasks" Association="NEWCO7CORE.Store.JobsJobTasks">
+      <End Role="Jobs" EntitySet="Jobs" />
+      <End Role="JobTasks" EntitySet="Tasks_JobTasks" />
+    </AssociationSet>
+    <AssociationSet Name="TeamAssociations" Association="NEWCO7CORE.Store.TeamAssociations">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="Associations" EntitySet="Associations" />
+    </AssociationSet>
+    <AssociationSet Name="AssociationsProjects" Association="NEWCO7CORE.Store.AssociationsProjects">
+      <End Role="Associations" EntitySet="Associations" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="AssociationsJobs" Association="NEWCO7CORE.Store.AssociationsJobs">
+      <End Role="Associations" EntitySet="Associations" />
+      <End Role="Jobs" EntitySet="Jobs" />
+    </AssociationSet>
+    <AssociationSet Name="AssociationsServices" Association="NEWCO7CORE.Store.AssociationsServices">
+      <End Role="Associations" EntitySet="Associations" />
+      <End Role="Services" EntitySet="Services" />
+    </AssociationSet>
+    <AssociationSet Name="AssociationsProducts" Association="NEWCO7CORE.Store.AssociationsProducts">
+      <End Role="Associations" EntitySet="Associations" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="AssociationsAccounts" Association="NEWCO7CORE.Store.AssociationsAccounts">
+      <End Role="Associations" EntitySet="Associations" />
+      <End Role="Accounts" EntitySet="Accounts" />
+    </AssociationSet>
+    <AssociationSet Name="AssociationsSubscribers" Association="NEWCO7CORE.Store.AssociationsSubscribers">
+      <End Role="Associations" EntitySet="Associations" />
+      <End Role="Subscribers" EntitySet="Subscribers" />
+    </AssociationSet>
+    <AssociationSet Name="AssociationsOpportunities" Association="NEWCO7CORE.Store.AssociationsOpportunities">
+      <End Role="Associations" EntitySet="Associations" />
+      <End Role="Opportunities" EntitySet="Opportunities" />
+    </AssociationSet>
+    <AssociationSet Name="AssociationsReports" Association="NEWCO7CORE.Store.AssociationsReports">
+      <End Role="Associations" EntitySet="Associations" />
+      <End Role="Reports" EntitySet="Reports" />
+    </AssociationSet>
+    <AssociationSet Name="AssociationsSegmentations" Association="NEWCO7CORE.Store.AssociationsSegmentations">
+      <End Role="Associations" EntitySet="Associations" />
+      <End Role="Segmentations" EntitySet="Segmentations" />
+    </AssociationSet>
+    <AssociationSet Name="CustomersReferrals" Association="NEWCO7CORE.Store.CustomersReferrals">
+      <End Role="Customers" EntitySet="Users_Customers" />
+      <End Role="Referrals" EntitySet="Referrals" />
+    </AssociationSet>
+    <AssociationSet Name="AssociationsCampaigns" Association="NEWCO7CORE.Store.AssociationsCampaigns">
+      <End Role="Associations" EntitySet="Associations" />
+      <End Role="Campaigns" EntitySet="Campaigns" />
+    </AssociationSet>
+    <AssociationSet Name="ScopeChangesProjects" Association="NEWCO7CORE.Store.ScopeChangesProjects">
+      <End Role="ScopeChanges" EntitySet="ScopeChanges" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="CostCodeOfAccountsCostCodeOfAccounts" Association="NEWCO7CORE.Store.CostCodeOfAccountsCostCodeOfAccounts">
+      <End Role="CostCodeOfAccounts" EntitySet="CostCodeOfAccounts" />
+      <End Role="CostCodeOfAccounts1" EntitySet="CostCodeOfAccounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Leads_inherits_User" Association="NEWCO7CORE.Store.FK_Leads_inherits_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Leads" EntitySet="Users_Leads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesUsers_inherits_User" Association="NEWCO7CORE.Store.FK_SalesUsers_inherits_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="SalesUsers" EntitySet="Users_SalesUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectTasks_inherits_Tasks" Association="NEWCO7CORE.Store.FK_ProjectTasks_inherits_Tasks">
+      <End Role="Tasks" EntitySet="Tasks" />
+      <End Role="ProjectTasks" EntitySet="Tasks_ProjectTasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobTasks_inherits_Tasks" Association="NEWCO7CORE.Store.FK_JobTasks_inherits_Tasks">
+      <End Role="Tasks" EntitySet="Tasks" />
+      <End Role="JobTasks" EntitySet="Tasks_JobTasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customers_inherits_User" Association="NEWCO7CORE.Store.FK_Customers_inherits_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Customers" EntitySet="Users_Customers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Passwords">
+    <Key>
+      <PropertyRef Name="PasswordId" />
+    </Key>
+    <Property Name="PasswordId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserUserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssociationsAssociationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Jobs">
+    <Key>
+      <PropertyRef Name="JobId" />
+    </Key>
+    <Property Name="JobId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssociationsAssociationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Campaigns">
+    <Key>
+      <PropertyRef Name="CampaignId" />
+    </Key>
+    <Property Name="CampaignId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssociationsAssociationId" Type="int" Nullable="true" />
+    <Property Name="AssociationsAssociationId1" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Referrals">
+    <Key>
+      <PropertyRef Name="ReferralId" />
+    </Key>
+    <Property Name="ReferralId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomersUserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Teams">
+    <Key>
+      <PropertyRef Name="TeamId" />
+    </Key>
+    <Property Name="TeamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Association_AssociationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssociationsAssociationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="ServiceId" />
+    </Key>
+    <Property Name="ServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssociationsAssociationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="AccountId" />
+    </Key>
+    <Property Name="AccountId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssociationsAssociationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subscribers">
+    <Key>
+      <PropertyRef Name="SubscriberId" />
+    </Key>
+    <Property Name="SubscriberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssociationsAssociationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Opportunities">
+    <Key>
+      <PropertyRef Name="OpportunityId" />
+    </Key>
+    <Property Name="OpportunityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssociationsAssociationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reports">
+    <Key>
+      <PropertyRef Name="ReportId" />
+    </Key>
+    <Property Name="ReportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssociationsAssociationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Segmentations">
+    <Key>
+      <PropertyRef Name="SegmentationId" />
+    </Key>
+    <Property Name="SegmentationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssociationsAssociationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tasks">
+    <Key>
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Name="TaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Associations">
+    <Key>
+      <PropertyRef Name="AssociationId" />
+    </Key>
+    <Property Name="AssociationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssociationName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AssociationModificationDate" Type="datetime" Nullable="false" />
+    <Property Name="AssociationActive" Type="bit" Nullable="false" DefaultValue="true" />
+  </EntityType>
+  <EntityType Name="CostCodeOfAccounts">
+    <Key>
+      <PropertyRef Name="CoCAccountId" />
+    </Key>
+    <Property Name="CoCAccountId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CoCAccountName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CoCAccountDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CostCodeOfAccountsCoCAccountId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ScopeChanges">
+    <Key>
+      <PropertyRef Name="ScopeChangeId" />
+    </Key>
+    <Property Name="ScopeChangeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectsProjectId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users_Leads">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserUserId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users_SalesUsers">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserUserId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tasks_ProjectTasks">
+    <Key>
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Name="ProjectTaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectsProjectId" Type="int" Nullable="true" />
+    <Property Name="TaskId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tasks_JobTasks">
+    <Key>
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Name="JobsJobId" Type="int" Nullable="true" />
+    <Property Name="TaskId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users_Customers">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTeam">
+    <Key>
+      <PropertyRef Name="Users_UserId" />
+      <PropertyRef Name="Teams_TeamId" />
+    </Key>
+    <Property Name="Users_UserId" Type="int" Nullable="false" />
+    <Property Name="Teams_TeamId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="UserLeads">
+    <End Role="User" Type="NEWCO7CORE.Store.Users" Multiplicity="1" />
+    <End Role="Leads" Type="NEWCO7CORE.Store.Users_Leads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Leads">
+        <PropertyRef Name="UserUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserSalesUsers">
+    <End Role="User" Type="NEWCO7CORE.Store.Users" Multiplicity="1" />
+    <End Role="SalesUsers" Type="NEWCO7CORE.Store.Users_SalesUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SalesUsers">
+        <PropertyRef Name="UserUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserPasswords">
+    <End Role="User" Type="NEWCO7CORE.Store.Users" Multiplicity="1" />
+    <End Role="Passwords" Type="NEWCO7CORE.Store.Passwords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Passwords">
+        <PropertyRef Name="UserUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectTasksProjects">
+    <End Role="ProjectTasks" Type="NEWCO7CORE.Store.Tasks_ProjectTasks" Multiplicity="*" />
+    <End Role="Projects" Type="NEWCO7CORE.Store.Projects" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="ProjectTasks">
+        <PropertyRef Name="ProjectsProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JobsJobTasks">
+    <End Role="Jobs" Type="NEWCO7CORE.Store.Jobs" Multiplicity="0..1" />
+    <End Role="JobTasks" Type="NEWCO7CORE.Store.Tasks_JobTasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jobs">
+        <PropertyRef Name="JobId" />
+      </Principal>
+      <Dependent Role="JobTasks">
+        <PropertyRef Name="JobsJobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TeamAssociations">
+    <End Role="Team" Type="NEWCO7CORE.Store.Teams" Multiplicity="*" />
+    <End Role="Associations" Type="NEWCO7CORE.Store.Associations" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Associations">
+        <PropertyRef Name="AssociationId" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="Association_AssociationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AssociationsProjects">
+    <End Role="Associations" Type="NEWCO7CORE.Store.Associations" Multiplicity="1" />
+    <End Role="Projects" Type="NEWCO7CORE.Store.Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Associations">
+        <PropertyRef Name="AssociationId" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="AssociationsAssociationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AssociationsJobs">
+    <End Role="Associations" Type="NEWCO7CORE.Store.Associations" Multiplicity="1" />
+    <End Role="Jobs" Type="NEWCO7CORE.Store.Jobs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Associations">
+        <PropertyRef Name="AssociationId" />
+      </Principal>
+      <Dependent Role="Jobs">
+        <PropertyRef Name="AssociationsAssociationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AssociationsServices">
+    <End Role="Associations" Type="NEWCO7CORE.Store.Associations" Multiplicity="1" />
+    <End Role="Services" Type="NEWCO7CORE.Store.Services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Associations">
+        <PropertyRef Name="AssociationId" />
+      </Principal>
+      <Dependent Role="Services">
+        <PropertyRef Name="AssociationsAssociationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AssociationsProducts">
+    <End Role="Associations" Type="NEWCO7CORE.Store.Associations" Multiplicity="1" />
+    <End Role="Products" Type="NEWCO7CORE.Store.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Associations">
+        <PropertyRef Name="AssociationId" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="AssociationsAssociationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AssociationsAccounts">
+    <End Role="Associations" Type="NEWCO7CORE.Store.Associations" Multiplicity="1" />
+    <End Role="Accounts" Type="NEWCO7CORE.Store.Accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Associations">
+        <PropertyRef Name="AssociationId" />
+      </Principal>
+      <Dependent Role="Accounts">
+        <PropertyRef Name="AssociationsAssociationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AssociationsSubscribers">
+    <End Role="Associations" Type="NEWCO7CORE.Store.Associations" Multiplicity="1" />
+    <End Role="Subscribers" Type="NEWCO7CORE.Store.Subscribers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Associations">
+        <PropertyRef Name="AssociationId" />
+      </Principal>
+      <Dependent Role="Subscribers">
+        <PropertyRef Name="AssociationsAssociationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AssociationsOpportunities">
+    <End Role="Associations" Type="NEWCO7CORE.Store.Associations" Multiplicity="1" />
+    <End Role="Opportunities" Type="NEWCO7CORE.Store.Opportunities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Associations">
+        <PropertyRef Name="AssociationId" />
+      </Principal>
+      <Dependent Role="Opportunities">
+        <PropertyRef Name="AssociationsAssociationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AssociationsReports">
+    <End Role="Associations" Type="NEWCO7CORE.Store.Associations" Multiplicity="1" />
+    <End Role="Reports" Type="NEWCO7CORE.Store.Reports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Associations">
+        <PropertyRef Name="AssociationId" />
+      </Principal>
+      <Dependent Role="Reports">
+        <PropertyRef Name="AssociationsAssociationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AssociationsSegmentations">
+    <End Role="Associations" Type="NEWCO7CORE.Store.Associations" Multiplicity="1" />
+    <End Role="Segmentations" Type="NEWCO7CORE.Store.Segmentations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Associations">
+        <PropertyRef Name="AssociationId" />
+      </Principal>
+      <Dependent Role="Segmentations">
+        <PropertyRef Name="AssociationsAssociationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CustomersReferrals">
+    <End Role="Customers" Type="NEWCO7CORE.Store.Users_Customers" Multiplicity="1" />
+    <End Role="Referrals" Type="NEWCO7CORE.Store.Referrals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Referrals">
+        <PropertyRef Name="CustomersUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AssociationsCampaigns">
+    <End Role="Associations" Type="NEWCO7CORE.Store.Associations" Multiplicity="1" />
+    <End Role="Campaigns" Type="NEWCO7CORE.Store.Campaigns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Associations">
+        <PropertyRef Name="AssociationId" />
+      </Principal>
+      <Dependent Role="Campaigns">
+        <PropertyRef Name="AssociationsAssociationId1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ScopeChangesProjects">
+    <End Role="ScopeChanges" Type="NEWCO7CORE.Store.ScopeChanges" Multiplicity="*" />
+    <End Role="Projects" Type="NEWCO7CORE.Store.Projects" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="ScopeChanges">
+        <PropertyRef Name="ProjectsProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CostCodeOfAccountsCostCodeOfAccounts">
+    <End Role="CostCodeOfAccounts" Type="NEWCO7CORE.Store.CostCodeOfAccounts" Multiplicity="1" />
+    <End Role="CostCodeOfAccounts1" Type="NEWCO7CORE.Store.CostCodeOfAccounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CostCodeOfAccounts">
+        <PropertyRef Name="CoCAccountId" />
+      </Principal>
+      <Dependent Role="CostCodeOfAccounts1">
+        <PropertyRef Name="CostCodeOfAccountsCoCAccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTeam_User">
+    <End Role="User" Type="NEWCO7CORE.Store.Users" Multiplicity="1" />
+    <End Role="UserTeam" Type="NEWCO7CORE.Store.UserTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserTeam">
+        <PropertyRef Name="Users_UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTeam_Team">
+    <End Role="UserTeam" Type="NEWCO7CORE.Store.UserTeam" Multiplicity="*" />
+    <End Role="Team" Type="NEWCO7CORE.Store.Teams" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="TeamId" />
+      </Principal>
+      <Dependent Role="UserTeam">
+        <PropertyRef Name="Teams_TeamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Leads_inherits_User">
+    <End Role="User" Type="NEWCO7CORE.Store.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Leads" Type="NEWCO7CORE.Store.Users_Leads" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Leads">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesUsers_inherits_User">
+    <End Role="User" Type="NEWCO7CORE.Store.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SalesUsers" Type="NEWCO7CORE.Store.Users_SalesUsers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SalesUsers">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectTasks_inherits_Tasks">
+    <End Role="Tasks" Type="NEWCO7CORE.Store.Tasks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProjectTasks" Type="NEWCO7CORE.Store.Tasks_ProjectTasks" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Tasks">
+        <PropertyRef Name="TaskId" />
+      </Principal>
+      <Dependent Role="ProjectTasks">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobTasks_inherits_Tasks">
+    <End Role="Tasks" Type="NEWCO7CORE.Store.Tasks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="JobTasks" Type="NEWCO7CORE.Store.Tasks_JobTasks" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Tasks">
+        <PropertyRef Name="TaskId" />
+      </Principal>
+      <Dependent Role="JobTasks">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customers_inherits_User">
+    <End Role="User" Type="NEWCO7CORE.Store.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Customers" Type="NEWCO7CORE.Store.Users_Customers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="NEWCO7CORE" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="NEWCO7COREContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="NEWCO7CORE.User" />
+          <AssociationSet Name="UserLeads" Association="NEWCO7CORE.UserLeads">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Leads" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="UserSalesUsers" Association="NEWCO7CORE.UserSalesUsers">
+            <End Role="User" EntitySet="Users" />
+            <End Role="SalesUsers" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="Passwords" EntityType="NEWCO7CORE.Passwords" />
+          <AssociationSet Name="UserPasswords" Association="NEWCO7CORE.UserPasswords">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Passwords" EntitySet="Passwords" />
+          </AssociationSet>
+          <EntitySet Name="Projects" EntityType="NEWCO7CORE.Projects" />
+          <EntitySet Name="Jobs" EntityType="NEWCO7CORE.Jobs" />
+          <EntitySet Name="Campaigns" EntityType="NEWCO7CORE.Campaigns" />
+          <EntitySet Name="Referrals" EntityType="NEWCO7CORE.Referrals" />
+          <EntitySet Name="Teams" EntityType="NEWCO7CORE.Team" />
+          <EntitySet Name="Products" EntityType="NEWCO7CORE.Products" />
+          <EntitySet Name="Services" EntityType="NEWCO7CORE.Services" />
+          <AssociationSet Name="UserTeam" Association="NEWCO7CORE.UserTeam">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+          <EntitySet Name="Accounts" EntityType="NEWCO7CORE.Accounts" />
+          <EntitySet Name="Subscribers" EntityType="NEWCO7CORE.Subscribers" />
+          <EntitySet Name="Opportunities" EntityType="NEWCO7CORE.Opportunities" />
+          <EntitySet Name="Reports" EntityType="NEWCO7CORE.Reports" />
+          <EntitySet Name="Segmentations" EntityType="NEWCO7CORE.Segmentations" />
+          <EntitySet Name="Tasks" EntityType="NEWCO7CORE.Tasks" />
+          <AssociationSet Name="ProjectTasksProjects" Association="NEWCO7CORE.ProjectTasksProjects">
+            <End Role="ProjectTasks" EntitySet="Tasks" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="JobsJobTasks" Association="NEWCO7CORE.JobsJobTasks">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="JobTasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <EntitySet Name="Associations" EntityType="NEWCO7CORE.Associations" />
+          <AssociationSet Name="TeamAssociations" Association="NEWCO7CORE.TeamAssociations">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Associations" EntitySet="Associations" />
+          </AssociationSet>
+          <AssociationSet Name="AssociationsProjects" Association="NEWCO7CORE.AssociationsProjects">
+            <End Role="Associations" EntitySet="Associations" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="AssociationsJobs" Association="NEWCO7CORE.AssociationsJobs">
+            <End Role="Associations" EntitySet="Associations" />
+            <End Role="Jobs" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="AssociationsServices" Association="NEWCO7CORE.AssociationsServices">
+            <End Role="Associations" EntitySet="Associations" />
+            <End Role="Services" EntitySet="Services" />
+          </AssociationSet>
+          <AssociationSet Name="AssociationsProducts" Association="NEWCO7CORE.AssociationsProducts">
+            <End Role="Associations" EntitySet="Associations" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="AssociationsAccounts" Association="NEWCO7CORE.AssociationsAccounts">
+            <End Role="Associations" EntitySet="Associations" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="AssociationsSubscribers" Association="NEWCO7CORE.AssociationsSubscribers">
+            <End Role="Associations" EntitySet="Associations" />
+            <End Role="Subscribers" EntitySet="Subscribers" />
+          </AssociationSet>
+          <AssociationSet Name="AssociationsOpportunities" Association="NEWCO7CORE.AssociationsOpportunities">
+            <End Role="Associations" EntitySet="Associations" />
+            <End Role="Opportunities" EntitySet="Opportunities" />
+          </AssociationSet>
+          <AssociationSet Name="AssociationsReports" Association="NEWCO7CORE.AssociationsReports">
+            <End Role="Associations" EntitySet="Associations" />
+            <End Role="Reports" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="AssociationsSegmentations" Association="NEWCO7CORE.AssociationsSegmentations">
+            <End Role="Associations" EntitySet="Associations" />
+            <End Role="Segmentations" EntitySet="Segmentations" />
+          </AssociationSet>
+          <AssociationSet Name="CustomersReferrals" Association="NEWCO7CORE.CustomersReferrals">
+            <End Role="Customers" EntitySet="Users" />
+            <End Role="Referrals" EntitySet="Referrals" />
+          </AssociationSet>
+          <AssociationSet Name="AssociationsCampaigns" Association="NEWCO7CORE.AssociationsCampaigns">
+            <End Role="Associations" EntitySet="Associations" />
+            <End Role="Campaigns" EntitySet="Campaigns" />
+          </AssociationSet>
+          <EntitySet Name="CostCodeOfAccountsWBS" EntityType="NEWCO7CORE.CostCodeOfAccountsWBS" />
+          <EntitySet Name="ScopeChanges" EntityType="NEWCO7CORE.ScopeChanges" />
+          <AssociationSet Name="ScopeChangesProjects" Association="NEWCO7CORE.ScopeChangesProjects">
+            <End Role="ScopeChanges" EntitySet="ScopeChanges" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="CostCodeOfAccountsCostCodeOfAccounts" Association="NEWCO7CORE.CostCodeOfAccountsCostCodeOfAccounts">
+            <End Role="CostCodeOfAccounts" EntitySet="CostCodeOfAccountsWBS" />
+            <End Role="CostCodeOfAccounts1" EntitySet="CostCodeOfAccountsWBS" />
+          </AssociationSet>
+          <EntitySet Name="CostCodeOfAccountsPBS" EntityType="NEWCO7CORE.CostCodeOfAccountsPBS" />
+          <EntitySet Name="Vendors" EntityType="NEWCO7CORE.Vendors" />
+          <EntitySet Name="BankDetails" EntityType="NEWCO7CORE.BankDetails" />
+          <AssociationSet Name="VendorsBankDetails" Association="NEWCO7CORE.VendorsBankDetails">
+            <End Role="Vendors" EntitySet="Vendors" />
+            <End Role="BankDetails" EntitySet="BankDetails" />
+          </AssociationSet>
+          <EntitySet Name="PurchasingCompanies" EntityType="NEWCO7CORE.PurchasingCompanies" />
+          <AssociationSet Name="BankDetailsPurchasingCompanies" Association="NEWCO7CORE.BankDetailsPurchasingCompanies">
+            <End Role="BankDetails" EntitySet="BankDetails" />
+            <End Role="PurchasingCompanies" EntitySet="PurchasingCompanies" />
+          </AssociationSet>
+          <EntitySet Name="Contracts" EntityType="NEWCO7CORE.Contracts" />
+          <AssociationSet Name="ContractsVendors" Association="NEWCO7CORE.ContractsVendors">
+            <End Role="Contracts" EntitySet="Contracts" />
+            <End Role="Vendors" EntitySet="Vendors" />
+          </AssociationSet>
+          <EntitySet Name="Trends" EntityType="NEWCO7CORE.Trends" />
+          <AssociationSet Name="TrendsProjects" Association="NEWCO7CORE.TrendsProjects">
+            <End Role="Trends" EntitySet="Trends" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="MiddleName" Type="String" Nullable="false" />
+          <NavigationProperty Name="Leads1" Relationship="NEWCO7CORE.UserLeads" FromRole="User" ToRole="Leads" />
+          <NavigationProperty Name="SalesUsers1" Relationship="NEWCO7CORE.UserSalesUsers" FromRole="User" ToRole="SalesUsers" />
+          <NavigationProperty Name="Passwords" Relationship="NEWCO7CORE.UserPasswords" FromRole="User" ToRole="Passwords" />
+          <NavigationProperty Name="Teams" Relationship="NEWCO7CORE.UserTeam" FromRole="User" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="Leads" BaseType="NEWCO7CORE.User" >
+          <NavigationProperty Name="User1" Relationship="NEWCO7CORE.UserLeads" FromRole="Leads" ToRole="User" />
+          <Property Name="UserUserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalesUsers" BaseType="NEWCO7CORE.User" >
+          <NavigationProperty Name="User1" Relationship="NEWCO7CORE.UserSalesUsers" FromRole="SalesUsers" ToRole="User" />
+          <Property Name="UserUserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="UserLeads">
+          <End Type="NEWCO7CORE.User" Role="User" Multiplicity="1" />
+          <End Type="NEWCO7CORE.Leads" Role="Leads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Leads">
+              <PropertyRef Name="UserUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserSalesUsers">
+          <End Type="NEWCO7CORE.User" Role="User" Multiplicity="1" />
+          <End Type="NEWCO7CORE.SalesUsers" Role="SalesUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="SalesUsers">
+              <PropertyRef Name="UserUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Passwords">
+          <Key>
+            <PropertyRef Name="PasswordId" />
+          </Key>
+          <Property Name="PasswordId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="User" Relationship="NEWCO7CORE.UserPasswords" FromRole="Passwords" ToRole="User" />
+          <Property Name="UserUserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="UserPasswords">
+          <End Type="NEWCO7CORE.User" Role="User" Multiplicity="1" />
+          <End Type="NEWCO7CORE.Passwords" Role="Passwords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Passwords">
+              <PropertyRef Name="UserUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ProjectTasks" Relationship="NEWCO7CORE.ProjectTasksProjects" FromRole="Projects" ToRole="ProjectTasks" />
+          <NavigationProperty Name="Association" Relationship="NEWCO7CORE.AssociationsProjects" FromRole="Projects" ToRole="Associations" />
+          <Property Name="AssociationsAssociationId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ScopeChanges" Relationship="NEWCO7CORE.ScopeChangesProjects" FromRole="Projects" ToRole="ScopeChanges" />
+          <NavigationProperty Name="Trends" Relationship="NEWCO7CORE.TrendsProjects" FromRole="Projects" ToRole="Trends" />
+        </EntityType>
+        <EntityType Name="Jobs">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="JobTasks" Relationship="NEWCO7CORE.JobsJobTasks" FromRole="Jobs" ToRole="JobTasks" />
+          <NavigationProperty Name="Association" Relationship="NEWCO7CORE.AssociationsJobs" FromRole="Jobs" ToRole="Associations" />
+          <Property Name="AssociationsAssociationId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Campaigns">
+          <Key>
+            <PropertyRef Name="CampaignId" />
+          </Key>
+          <Property Name="CampaignId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssociationsAssociationId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="Association" Relationship="NEWCO7CORE.AssociationsCampaigns" FromRole="Campaigns" ToRole="Associations" />
+          <Property Name="AssociationsAssociationId1" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Referrals">
+          <Key>
+            <PropertyRef Name="ReferralId" />
+          </Key>
+          <Property Name="ReferralId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Customer" Relationship="NEWCO7CORE.CustomersReferrals" FromRole="Referrals" ToRole="Customers" />
+          <Property Name="CustomersUserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="TeamId" />
+          </Key>
+          <Property Name="TeamId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Users" Relationship="NEWCO7CORE.UserTeam" FromRole="Team" ToRole="User" />
+          <NavigationProperty Name="Association" Relationship="NEWCO7CORE.TeamAssociations" FromRole="Team" ToRole="Associations" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Association" Relationship="NEWCO7CORE.AssociationsProducts" FromRole="Products" ToRole="Associations" />
+          <Property Name="AssociationsAssociationId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="ServiceId" />
+          </Key>
+          <Property Name="ServiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Association" Relationship="NEWCO7CORE.AssociationsServices" FromRole="Services" ToRole="Associations" />
+          <Property Name="AssociationsAssociationId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="UserTeam">
+          <End Type="NEWCO7CORE.User" Role="User" Multiplicity="*" />
+          <End Type="NEWCO7CORE.Team" Role="Team" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Customers" BaseType="NEWCO7CORE.User">
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Referrals" Relationship="NEWCO7CORE.CustomersReferrals" FromRole="Customers" ToRole="Referrals" />
+        </EntityType>
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="AccountId" />
+          </Key>
+          <Property Name="AccountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Association" Relationship="NEWCO7CORE.AssociationsAccounts" FromRole="Accounts" ToRole="Associations" />
+          <Property Name="AssociationsAssociationId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subscribers">
+          <Key>
+            <PropertyRef Name="SubscriberId" />
+          </Key>
+          <Property Name="SubscriberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Association" Relationship="NEWCO7CORE.AssociationsSubscribers" FromRole="Subscribers" ToRole="Associations" />
+          <Property Name="AssociationsAssociationId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Opportunities">
+          <Key>
+            <PropertyRef Name="OpportunityId" />
+          </Key>
+          <Property Name="OpportunityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Association" Relationship="NEWCO7CORE.AssociationsOpportunities" FromRole="Opportunities" ToRole="Associations" />
+          <Property Name="AssociationsAssociationId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reports">
+          <Key>
+            <PropertyRef Name="ReportId" />
+          </Key>
+          <Property Name="ReportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Association" Relationship="NEWCO7CORE.AssociationsReports" FromRole="Reports" ToRole="Associations" />
+          <Property Name="AssociationsAssociationId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EnumType Name="DaysOfTheWeek">
+          <Member Name="Monday" Value="1" />
+          <Member Name="Tuesday" Value="2" />
+          <Member Name="Wednesday" Value="3" />
+          <Member Name="Thrusday" Value="4" />
+          <Member Name="Friday" Value="5" />
+          <Member Name="Saturaday" Value="6" />
+          <Member Name="Sunday" Value="7" />
+        </EnumType>
+        <EnumType Name="SecurityLevels">
+          <Member Name="Default" />
+          <Member Name="Administrator" />
+          <Member Name="Executive" />
+        </EnumType>
+        <EnumType Name="SecurityModels">
+          <Member Name="Projects" />
+          <Member Name="Email_Designer" />
+          <Member Name="Scheduler" />
+          <Member Name="Segmentation" />
+          <Member Name="Campaigns" />
+          <Member Name="Subscribers" />
+          <Member Name="Administration" />
+          <Member Name="Reports" />
+          <Member Name="Opportunities" />
+        </EnumType>
+        <EntityType Name="Segmentations">
+          <Key>
+            <PropertyRef Name="SegmentationId" />
+          </Key>
+          <Property Name="SegmentationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Association" Relationship="NEWCO7CORE.AssociationsSegmentations" FromRole="Segmentations" ToRole="Associations" />
+          <Property Name="AssociationsAssociationId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProjectTasks" BaseType="NEWCO7CORE.Tasks">
+          <Property Name="ProjectTaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Project" Relationship="NEWCO7CORE.ProjectTasksProjects" FromRole="ProjectTasks" ToRole="Projects" />
+          <Property Name="ProjectsProjectId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Tasks">
+          <Key>
+            <PropertyRef Name="TaskId" />
+          </Key>
+          <Property Name="TaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <Association Name="ProjectTasksProjects">
+          <End Type="NEWCO7CORE.ProjectTasks" Role="ProjectTasks" Multiplicity="*" />
+          <End Type="NEWCO7CORE.Projects" Role="Projects" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="ProjectTasks">
+              <PropertyRef Name="ProjectsProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="JobTasks" BaseType="NEWCO7CORE.Tasks" >
+          <NavigationProperty Name="Job" Relationship="NEWCO7CORE.JobsJobTasks" FromRole="JobTasks" ToRole="Jobs" />
+          <Property Name="JobsJobId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <Association Name="JobsJobTasks">
+          <End Type="NEWCO7CORE.Jobs" Role="Jobs" Multiplicity="0..1" />
+          <End Type="NEWCO7CORE.JobTasks" Role="JobTasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="JobId" />
+            </Principal>
+            <Dependent Role="JobTasks">
+              <PropertyRef Name="JobsJobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Associations">
+          <Key>
+            <PropertyRef Name="AssociationId" />
+          </Key>
+          <Property Name="AssociationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Teams" Relationship="NEWCO7CORE.TeamAssociations" FromRole="Associations" ToRole="Team" />
+          <NavigationProperty Name="Projects" Relationship="NEWCO7CORE.AssociationsProjects" FromRole="Associations" ToRole="Projects" />
+          <NavigationProperty Name="Jobs" Relationship="NEWCO7CORE.AssociationsJobs" FromRole="Associations" ToRole="Jobs" />
+          <NavigationProperty Name="Services" Relationship="NEWCO7CORE.AssociationsServices" FromRole="Associations" ToRole="Services" />
+          <NavigationProperty Name="Products" Relationship="NEWCO7CORE.AssociationsProducts" FromRole="Associations" ToRole="Products" />
+          <NavigationProperty Name="Accounts" Relationship="NEWCO7CORE.AssociationsAccounts" FromRole="Associations" ToRole="Accounts" />
+          <NavigationProperty Name="Subscribers" Relationship="NEWCO7CORE.AssociationsSubscribers" FromRole="Associations" ToRole="Subscribers" />
+          <NavigationProperty Name="Opportunities" Relationship="NEWCO7CORE.AssociationsOpportunities" FromRole="Associations" ToRole="Opportunities" />
+          <NavigationProperty Name="Reports" Relationship="NEWCO7CORE.AssociationsReports" FromRole="Associations" ToRole="Reports" />
+          <NavigationProperty Name="Segmentations" Relationship="NEWCO7CORE.AssociationsSegmentations" FromRole="Associations" ToRole="Segmentations" />
+          <NavigationProperty Name="Campaigns" Relationship="NEWCO7CORE.AssociationsCampaigns" FromRole="Associations" ToRole="Campaigns" />
+          <Property Name="AssociationName" Type="String" Nullable="false" />
+          <Property Name="AssociationModificationDate" Type="DateTime" Nullable="false" />
+          <Property Name="AssociationActive" Type="Boolean" Nullable="false" DefaultValue="True" />
+        </EntityType>
+        <Association Name="TeamAssociations">
+          <End Type="NEWCO7CORE.Team" Role="Team" Multiplicity="*" />
+          <End Type="NEWCO7CORE.Associations" Role="Associations" Multiplicity="1" />
+        </Association>
+        <Association Name="AssociationsProjects">
+          <End Type="NEWCO7CORE.Associations" Role="Associations" Multiplicity="1" />
+          <End Type="NEWCO7CORE.Projects" Role="Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Associations">
+              <PropertyRef Name="AssociationId" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="AssociationsAssociationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AssociationsJobs">
+          <End Type="NEWCO7CORE.Associations" Role="Associations" Multiplicity="1" />
+          <End Type="NEWCO7CORE.Jobs" Role="Jobs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Associations">
+              <PropertyRef Name="AssociationId" />
+            </Principal>
+            <Dependent Role="Jobs">
+              <PropertyRef Name="AssociationsAssociationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AssociationsServices">
+          <End Type="NEWCO7CORE.Associations" Role="Associations" Multiplicity="1" />
+          <End Type="NEWCO7CORE.Services" Role="Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Associations">
+              <PropertyRef Name="AssociationId" />
+            </Principal>
+            <Dependent Role="Services">
+              <PropertyRef Name="AssociationsAssociationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AssociationsProducts">
+          <End Type="NEWCO7CORE.Associations" Role="Associations" Multiplicity="1" />
+          <End Type="NEWCO7CORE.Products" Role="Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Associations">
+              <PropertyRef Name="AssociationId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="AssociationsAssociationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AssociationsAccounts">
+          <End Type="NEWCO7CORE.Associations" Role="Associations" Multiplicity="1" />
+          <End Type="NEWCO7CORE.Accounts" Role="Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Associations">
+              <PropertyRef Name="AssociationId" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="AssociationsAssociationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AssociationsSubscribers">
+          <End Type="NEWCO7CORE.Associations" Role="Associations" Multiplicity="1" />
+          <End Type="NEWCO7CORE.Subscribers" Role="Subscribers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Associations">
+              <PropertyRef Name="AssociationId" />
+            </Principal>
+            <Dependent Role="Subscribers">
+              <PropertyRef Name="AssociationsAssociationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AssociationsOpportunities">
+          <End Type="NEWCO7CORE.Associations" Role="Associations" Multiplicity="1" />
+          <End Type="NEWCO7CORE.Opportunities" Role="Opportunities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Associations">
+              <PropertyRef Name="AssociationId" />
+            </Principal>
+            <Dependent Role="Opportunities">
+              <PropertyRef Name="AssociationsAssociationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AssociationsReports">
+          <End Type="NEWCO7CORE.Associations" Role="Associations" Multiplicity="1" />
+          <End Type="NEWCO7CORE.Reports" Role="Reports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Associations">
+              <PropertyRef Name="AssociationId" />
+            </Principal>
+            <Dependent Role="Reports">
+              <PropertyRef Name="AssociationsAssociationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AssociationsSegmentations">
+          <End Type="NEWCO7CORE.Associations" Role="Associations" Multiplicity="1" />
+          <End Type="NEWCO7CORE.Segmentations" Role="Segmentations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Associations">
+              <PropertyRef Name="AssociationId" />
+            </Principal>
+            <Dependent Role="Segmentations">
+              <PropertyRef Name="AssociationsAssociationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustomersReferrals">
+          <End Type="NEWCO7CORE.Customers" Role="Customers" Multiplicity="1" />
+          <End Type="NEWCO7CORE.Referrals" Role="Referrals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Referrals">
+              <PropertyRef Name="CustomersUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AssociationsCampaigns">
+          <End Type="NEWCO7CORE.Associations" Role="Associations" Multiplicity="1" />
+          <End Type="NEWCO7CORE.Campaigns" Role="Campaigns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Associations">
+              <PropertyRef Name="AssociationId" />
+            </Principal>
+            <Dependent Role="Campaigns">
+              <PropertyRef Name="AssociationsAssociationId1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CostCodeOfAccountsWBS">
+          <Key>
+            <PropertyRef Name="CoCAccountId" />
+          </Key>
+          <Property Name="CoCAccountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CoCAccountName" Type="String" Nullable="false" />
+          <Property Name="CoCAccountDescription" Type="String" Nullable="false" />
+          <NavigationProperty Name="CostCodeOfAccounts1" Relationship="NEWCO7CORE.CostCodeOfAccountsCostCodeOfAccounts" FromRole="CostCodeOfAccounts" ToRole="CostCodeOfAccounts1" />
+          <NavigationProperty Name="CostCodeOfAccount" Relationship="NEWCO7CORE.CostCodeOfAccountsCostCodeOfAccounts" FromRole="CostCodeOfAccounts1" ToRole="CostCodeOfAccounts" />
+          <Property Name="CostCodeOfAccountsCoCAccountId" Type="Int32" Nullable="false" />
+          <Property Name="CoCLevel" Type="CodeOfAccountLevel" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScopeChanges">
+          <Key>
+            <PropertyRef Name="ScopeChangeId" />
+          </Key>
+          <Property Name="ScopeChangeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Project" Relationship="NEWCO7CORE.ScopeChangesProjects" FromRole="ScopeChanges" ToRole="Projects" />
+          <Property Name="ProjectsProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" />
+          <Property Name="ScheduleImpact" Type="ScheduleImpact" Nullable="false" />
+          <Property Name="ConstructionHours" Type="Int32" Nullable="false" />
+          <Property Name="OfficeHours" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="RevisionNumber" Type="Int32" Nullable="false" />
+          <Property Name="DateSubmitted" Type="DateTime" Nullable="false" />
+          <Property Name="DateApprovedOrCancelled" Type="String" Nullable="false" />
+          <Property Name="TrendStatus" Type="TrendStatus" Nullable="false" />
+          <Property Name="ProjectsProjectId1" Type="Int32" Nullable="false" />
+          <Property Name="CurrentRemainingBudget" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="ScopeChangesProjects">
+          <End Type="NEWCO7CORE.ScopeChanges" Role="ScopeChanges" Multiplicity="*" />
+          <End Type="NEWCO7CORE.Projects" Role="Projects" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="ScopeChanges">
+              <PropertyRef Name="ProjectsProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CostCodeOfAccountsCostCodeOfAccounts">
+          <End Type="NEWCO7CORE.CostCodeOfAccountsWBS" Role="CostCodeOfAccounts" Multiplicity="1" />
+          <End Type="NEWCO7CORE.CostCodeOfAccountsWBS" Role="CostCodeOfAccounts1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CostCodeOfAccounts">
+              <PropertyRef Name="CoCAccountId" />
+            </Principal>
+            <Dependent Role="CostCodeOfAccounts1">
+              <PropertyRef Name="CostCodeOfAccountsCoCAccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CostCodeOfAccountsPBS">
+          <Key>
+            <PropertyRef Name="CoCAccountId" />
+          </Key>
+          <Property Name="CoCAccountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CoCAccountName" Type="String" Nullable="false" />
+          <Property Name="CoCAccountDescription" Type="String" Nullable="false" />
+          <Property Name="CoCLevel" Type="NEWCO7CORE.CodeOfAccountLevel" Nullable="false" />
+        </EntityType>
+        <EnumType Name="CodeOfAccountLevel" IsFlags="true">
+          <Member Name="One" Value="1" />
+          <Member Name="Two" Value="2" />
+          <Member Name="Three" Value="3" />
+          <Member Name="Four" Value="4" />
+        </EnumType>
+        <EntityType Name="Vendors">
+          <Key>
+            <PropertyRef Name="VendorId" />
+          </Key>
+          <Property Name="VendorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="BankDetail" Relationship="NEWCO7CORE.VendorsBankDetails" FromRole="Vendors" ToRole="BankDetails" />
+          <NavigationProperty Name="Contract" Relationship="NEWCO7CORE.ContractsVendors" FromRole="Vendors" ToRole="Contracts" />
+          <Property Name="ContractsContractId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BankDetails">
+          <Key>
+            <PropertyRef Name="BankDetailId" />
+          </Key>
+          <Property Name="BankDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Vendor" Relationship="NEWCO7CORE.VendorsBankDetails" FromRole="BankDetails" ToRole="Vendors" />
+          <NavigationProperty Name="PurchasingCompany" Relationship="NEWCO7CORE.BankDetailsPurchasingCompanies" FromRole="BankDetails" ToRole="PurchasingCompanies" />
+        </EntityType>
+        <Association Name="VendorsBankDetails">
+          <End Type="NEWCO7CORE.Vendors" Role="Vendors" Multiplicity="1" />
+          <End Type="NEWCO7CORE.BankDetails" Role="BankDetails" Multiplicity="1" />
+        </Association>
+        <EntityType Name="PurchasingCompanies">
+          <Key>
+            <PropertyRef Name="PurchasingCompanyId" />
+          </Key>
+          <Property Name="PurchasingCompanyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="BankDetail" Relationship="NEWCO7CORE.BankDetailsPurchasingCompanies" FromRole="PurchasingCompanies" ToRole="BankDetails" />
+        </EntityType>
+        <Association Name="BankDetailsPurchasingCompanies">
+          <End Type="NEWCO7CORE.BankDetails" Role="BankDetails" Multiplicity="1" />
+          <End Type="NEWCO7CORE.PurchasingCompanies" Role="PurchasingCompanies" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Contracts">
+          <Key>
+            <PropertyRef Name="ContractId" />
+          </Key>
+          <Property Name="ContractId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Vendors" Relationship="NEWCO7CORE.ContractsVendors" FromRole="Contracts" ToRole="Vendors" />
+          <Property Name="ContractNumber" Type="String" Nullable="false" />
+          <Property Name="ContractType" Type="NEWCO7CORE.ContractType" Nullable="false" />
+          <Property Name="ContractStartDate" Type="DateTime" Nullable="false" />
+          <Property Name="ContractEndDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <Association Name="ContractsVendors">
+          <End Type="NEWCO7CORE.Contracts" Role="Contracts" Multiplicity="1" />
+          <End Type="NEWCO7CORE.Vendors" Role="Vendors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contracts">
+              <PropertyRef Name="ContractId" />
+            </Principal>
+            <Dependent Role="Vendors">
+              <PropertyRef Name="ContractsContractId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="ContractType" IsFlags="true">
+          <Member Name="Primary" Value="1" />
+          <Member Name="Sub" />
+        </EnumType>
+        <EntityType Name="Trends">
+          <Key>
+            <PropertyRef Name="TrendId" />
+          </Key>
+          <Property Name="TrendId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="ForecastTrendAmount" Type="Decimal" Nullable="false" />
+          <Property Name="ScheduleImpact" Type="NEWCO7CORE.ScheduleImpact" Nullable="false" />
+          <Property Name="ConstructionHours" Type="Int32" Nullable="false" />
+          <Property Name="OfficeHours" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="RevisionNumber" Type="Int32" Nullable="false" />
+          <Property Name="DateSubmitted" Type="DateTime" Nullable="false" />
+          <Property Name="DateApprovedOrCancelled" Type="String" Nullable="false" />
+          <Property Name="TrendStatus" Type="NEWCO7CORE.TrendStatus" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="NEWCO7CORE.TrendsProjects" FromRole="Trends" ToRole="Projects" />
+          <Property Name="ProjectsProjectId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EnumType Name="ScheduleImpact">
+          <Member Name="Major" />
+          <Member Name="Minor" />
+        </EnumType>
+        <EnumType Name="TrendStatus" IsFlags="true">
+          <Member Name="Approved" />
+          <Member Name="Cancelled" />
+          <Member Name="Completed" />
+          <Member Name="Deferred" />
+        </EnumType>
+        <Association Name="TrendsProjects">
+          <End Type="NEWCO7CORE.Trends" Role="Trends" Multiplicity="*" />
+          <End Type="NEWCO7CORE.Projects" Role="Projects" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="Trends">
+              <PropertyRef Name="ProjectsProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Stakeholders" BaseType="NEWCO7CORE.User">
+          <Property Name="StakeholderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrendsTrendId" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NEWCO7COREStoreContainer" CdmEntityContainer="NEWCO7COREContainer">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Leads)">
+        <MappingFragment StoreEntitySet="Users_Leads">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserUserId" ColumnName="UserUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.SalesUsers)">
+        <MappingFragment StoreEntitySet="Users_SalesUsers">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserUserId" ColumnName="UserUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Customers)">
+        <MappingFragment StoreEntitySet="Users_Customers">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passwords">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Passwords)">
+        <MappingFragment StoreEntitySet="Passwords">
+          <ScalarProperty Name="PasswordId" ColumnName="PasswordId" />
+          <ScalarProperty Name="UserUserId" ColumnName="UserUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Projects)">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="AssociationsAssociationId" ColumnName="AssociationsAssociationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jobs">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Jobs)">
+        <MappingFragment StoreEntitySet="Jobs">
+          <ScalarProperty Name="JobId" ColumnName="JobId" />
+          <ScalarProperty Name="AssociationsAssociationId" ColumnName="AssociationsAssociationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Campaigns">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Campaigns)">
+        <MappingFragment StoreEntitySet="Campaigns">
+          <ScalarProperty Name="CampaignId" ColumnName="CampaignId" />
+          <ScalarProperty Name="AssociationsAssociationId" ColumnName="AssociationsAssociationId" />
+          <ScalarProperty Name="AssociationsAssociationId1" ColumnName="AssociationsAssociationId1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Referrals">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Referrals)">
+        <MappingFragment StoreEntitySet="Referrals">
+          <ScalarProperty Name="ReferralId" ColumnName="ReferralId" />
+          <ScalarProperty Name="CustomersUserId" ColumnName="CustomersUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Team)">
+        <MappingFragment StoreEntitySet="Teams">
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Products)">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="AssociationsAssociationId" ColumnName="AssociationsAssociationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Services)">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="AssociationsAssociationId" ColumnName="AssociationsAssociationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Accounts)">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="AssociationsAssociationId" ColumnName="AssociationsAssociationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subscribers">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Subscribers)">
+        <MappingFragment StoreEntitySet="Subscribers">
+          <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+          <ScalarProperty Name="AssociationsAssociationId" ColumnName="AssociationsAssociationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Opportunities">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Opportunities)">
+        <MappingFragment StoreEntitySet="Opportunities">
+          <ScalarProperty Name="OpportunityId" ColumnName="OpportunityId" />
+          <ScalarProperty Name="AssociationsAssociationId" ColumnName="AssociationsAssociationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reports">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Reports)">
+        <MappingFragment StoreEntitySet="Reports">
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+          <ScalarProperty Name="AssociationsAssociationId" ColumnName="AssociationsAssociationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Segmentations">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Segmentations)">
+        <MappingFragment StoreEntitySet="Segmentations">
+          <ScalarProperty Name="SegmentationId" ColumnName="SegmentationId" />
+          <ScalarProperty Name="AssociationsAssociationId" ColumnName="AssociationsAssociationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tasks">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Tasks)">
+        <MappingFragment StoreEntitySet="Tasks">
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.ProjectTasks)">
+        <MappingFragment StoreEntitySet="Tasks_ProjectTasks">
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="ProjectTaskId" ColumnName="ProjectTaskId" />
+          <ScalarProperty Name="ProjectsProjectId" ColumnName="ProjectsProjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.JobTasks)">
+        <MappingFragment StoreEntitySet="Tasks_JobTasks">
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="JobsJobId" ColumnName="JobsJobId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Associations">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Associations)">
+        <MappingFragment StoreEntitySet="Associations">
+          <ScalarProperty Name="AssociationId" ColumnName="AssociationId" />
+          <ScalarProperty Name="AssociationName" ColumnName="AssociationName" />
+          <ScalarProperty Name="AssociationModificationDate" ColumnName="AssociationModificationDate" />
+          <ScalarProperty Name="AssociationActive" ColumnName="AssociationActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CostCodeOfAccountsWBS">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.CostCodeOfAccountsWBS)">
+        <MappingFragment StoreEntitySet="CostCodeOfAccounts">
+          <ScalarProperty Name="CoCAccountId" ColumnName="CoCAccountId" />
+          <ScalarProperty Name="CoCAccountName" ColumnName="CoCAccountName" />
+          <ScalarProperty Name="CoCAccountDescription" ColumnName="CoCAccountDescription" />
+          <ScalarProperty Name="CostCodeOfAccountsCoCAccountId" ColumnName="CostCodeOfAccountsCoCAccountId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScopeChanges">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.ScopeChanges)">
+        <MappingFragment StoreEntitySet="ScopeChanges">
+          <ScalarProperty Name="ScopeChangeId" ColumnName="ScopeChangeId" />
+          <ScalarProperty Name="ProjectsProjectId" ColumnName="ProjectsProjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UserTeam" TypeName="NEWCO7CORE.UserTeam" StoreEntitySet="UserTeam">
+      <EndProperty Name="User">
+        <ScalarProperty Name="UserId" ColumnName="Users_UserId" />
+      </EndProperty>
+      <EndProperty Name="Team">
+        <ScalarProperty Name="TeamId" ColumnName="Teams_TeamId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeamAssociations" TypeName="NEWCO7CORE.TeamAssociations" StoreEntitySet="Teams">
+      <EndProperty Name="Associations">
+        <ScalarProperty Name="AssociationId" ColumnName="Association_AssociationId" />
+      </EndProperty>
+      <EndProperty Name="Team">
+        <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

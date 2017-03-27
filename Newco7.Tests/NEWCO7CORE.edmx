@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NEWCO7CORE.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="NEWCO7COREStoreContainer">
+    <EntitySet Name="Users" EntityType="NEWCO7CORE.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Passwords" EntityType="NEWCO7CORE.Store.Passwords" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SecurityAccessByModules" EntityType="NEWCO7CORE.Store.SecurityAccessByModules" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SecurityLevels" EntityType="NEWCO7CORE.Store.SecurityLevels" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users_Leads" EntityType="NEWCO7CORE.Store.Users_Leads" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users_SalesUsers" EntityType="NEWCO7CORE.Store.Users_SalesUsers" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UserLeads" Association="NEWCO7CORE.Store.UserLeads">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Leads" EntitySet="Users_Leads" />
+    </AssociationSet>
+    <AssociationSet Name="UserSalesUsers" Association="NEWCO7CORE.Store.UserSalesUsers">
+      <End Role="User" EntitySet="Users" />
+      <End Role="SalesUsers" EntitySet="Users_SalesUsers" />
+    </AssociationSet>
+    <AssociationSet Name="UserPasswords" Association="NEWCO7CORE.Store.UserPasswords">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Passwords" EntitySet="Passwords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Leads_inherits_User" Association="NEWCO7CORE.Store.FK_Leads_inherits_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Leads" EntitySet="Users_Leads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesUsers_inherits_User" Association="NEWCO7CORE.Store.FK_SalesUsers_inherits_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="SalesUsers" EntitySet="Users_SalesUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Passwords">
+    <Key>
+      <PropertyRef Name="PasswordId" />
+    </Key>
+    <Property Name="PasswordId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserUserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SecurityAccessByModules">
+    <Key>
+      <PropertyRef Name="SecurityAccessByModuleId" />
+    </Key>
+    <Property Name="SecurityAccessByModuleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SecurityLevels">
+    <Key>
+      <PropertyRef Name="SecurityLevelId" />
+    </Key>
+    <Property Name="SecurityLevelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users_Leads">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserUserId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users_SalesUsers">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserUserId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="UserLeads">
+    <End Role="User" Type="NEWCO7CORE.Store.Users" Multiplicity="1" />
+    <End Role="Leads" Type="NEWCO7CORE.Store.Users_Leads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Leads">
+        <PropertyRef Name="UserUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserSalesUsers">
+    <End Role="User" Type="NEWCO7CORE.Store.Users" Multiplicity="1" />
+    <End Role="SalesUsers" Type="NEWCO7CORE.Store.Users_SalesUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SalesUsers">
+        <PropertyRef Name="UserUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserPasswords">
+    <End Role="User" Type="NEWCO7CORE.Store.Users" Multiplicity="1" />
+    <End Role="Passwords" Type="NEWCO7CORE.Store.Passwords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Passwords">
+        <PropertyRef Name="UserUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Leads_inherits_User">
+    <End Role="User" Type="NEWCO7CORE.Store.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Leads" Type="NEWCO7CORE.Store.Users_Leads" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Leads">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesUsers_inherits_User">
+    <End Role="User" Type="NEWCO7CORE.Store.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SalesUsers" Type="NEWCO7CORE.Store.Users_SalesUsers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SalesUsers">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="NEWCO7CORE" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="NEWCO7COREContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="NEWCO7CORE.User" />
+          <AssociationSet Name="UserLeads" Association="NEWCO7CORE.UserLeads">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Leads" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="UserSalesUsers" Association="NEWCO7CORE.UserSalesUsers">
+            <End Role="User" EntitySet="Users" />
+            <End Role="SalesUsers" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="Passwords" EntityType="NEWCO7CORE.Passwords" />
+          <EntitySet Name="SecurityAccessByModules" EntityType="NEWCO7CORE.SecurityAccessByModules" />
+          <EntitySet Name="SecurityLevels" EntityType="NEWCO7CORE.SecurityLevels" />
+          <AssociationSet Name="UserPasswords" Association="NEWCO7CORE.UserPasswords">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Passwords" EntitySet="Passwords" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="MiddleName" Type="String" Nullable="false" />
+          <NavigationProperty Name="Leads1" Relationship="NEWCO7CORE.UserLeads" FromRole="User" ToRole="Leads" />
+          <NavigationProperty Name="SalesUsers1" Relationship="NEWCO7CORE.UserSalesUsers" FromRole="User" ToRole="SalesUsers" />
+          <NavigationProperty Name="Passwords" Relationship="NEWCO7CORE.UserPasswords" FromRole="User" ToRole="Passwords" />
+        </EntityType>
+        <EntityType Name="Leads" BaseType="NEWCO7CORE.User" >
+          <NavigationProperty Name="User1" Relationship="NEWCO7CORE.UserLeads" FromRole="Leads" ToRole="User" />
+          <Property Name="UserUserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalesUsers" BaseType="NEWCO7CORE.User" >
+          <NavigationProperty Name="User1" Relationship="NEWCO7CORE.UserSalesUsers" FromRole="SalesUsers" ToRole="User" />
+          <Property Name="UserUserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="UserLeads">
+          <End Type="NEWCO7CORE.User" Role="User" Multiplicity="1" />
+          <End Type="NEWCO7CORE.Leads" Role="Leads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Leads">
+              <PropertyRef Name="UserUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserSalesUsers">
+          <End Type="NEWCO7CORE.User" Role="User" Multiplicity="1" />
+          <End Type="NEWCO7CORE.SalesUsers" Role="SalesUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="SalesUsers">
+              <PropertyRef Name="UserUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Passwords">
+          <Key>
+            <PropertyRef Name="PasswordId" />
+          </Key>
+          <Property Name="PasswordId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="User" Relationship="NEWCO7CORE.UserPasswords" FromRole="Passwords" ToRole="User" />
+          <Property Name="UserUserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SecurityAccessByModules">
+          <Key>
+            <PropertyRef Name="SecurityAccessByModuleId" />
+          </Key>
+          <Property Name="SecurityAccessByModuleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="SecurityLevels">
+          <Key>
+            <PropertyRef Name="SecurityLevelId" />
+          </Key>
+          <Property Name="SecurityLevelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <Association Name="UserPasswords">
+          <End Type="NEWCO7CORE.User" Role="User" Multiplicity="1" />
+          <End Type="NEWCO7CORE.Passwords" Role="Passwords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Passwords">
+              <PropertyRef Name="UserUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NEWCO7COREStoreContainer" CdmEntityContainer="NEWCO7COREContainer">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Leads)">
+        <MappingFragment StoreEntitySet="Users_Leads">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserUserId" ColumnName="UserUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.SalesUsers)">
+        <MappingFragment StoreEntitySet="Users_SalesUsers">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserUserId" ColumnName="UserUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passwords">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.Passwords)">
+        <MappingFragment StoreEntitySet="Passwords">
+          <ScalarProperty Name="PasswordId" ColumnName="PasswordId" />
+          <ScalarProperty Name="UserUserId" ColumnName="UserUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SecurityAccessByModules">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.SecurityAccessByModules)">
+        <MappingFragment StoreEntitySet="SecurityAccessByModules">
+          <ScalarProperty Name="SecurityAccessByModuleId" ColumnName="SecurityAccessByModuleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SecurityLevels">
+      <EntityTypeMapping TypeName="IsTypeOf(NEWCO7CORE.SecurityLevels)">
+        <MappingFragment StoreEntitySet="SecurityLevels">
+          <ScalarProperty Name="SecurityLevelId" ColumnName="SecurityLevelId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

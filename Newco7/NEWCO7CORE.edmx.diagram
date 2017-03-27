@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8ad0ec97f056405ebe9030232de080a0" Name="Diagram1" >
+        <EntityTypeShape EntityType="NEWCO7CORE.User" Width="1.5" PointX="11.875" PointY="7.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Leads" Width="1.5" PointX="9.625" PointY="8.375" IsExpanded="false" />
+        <InheritanceConnector EntityType="NEWCO7CORE.Leads" />
+        <EntityTypeShape EntityType="NEWCO7CORE.SalesUsers" Width="1.5" PointX="6.875" PointY="8.375" IsExpanded="false" />
+        <InheritanceConnector EntityType="NEWCO7CORE.SalesUsers" />
+        <AssociationConnector Association="NEWCO7CORE.UserLeads" />
+        <AssociationConnector Association="NEWCO7CORE.UserSalesUsers" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Passwords" Width="1.5" PointX="11.875" PointY="14.125" IsExpanded="false" />
+        <AssociationConnector Association="NEWCO7CORE.UserPasswords" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Projects" Width="1.5" PointX="19.375" PointY="7.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Jobs" Width="1.5" PointX="16.375" PointY="6" IsExpanded="false" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Campaigns" Width="1.5" PointX="16.375" PointY="3.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Referrals" Width="1.5" PointX="14.25" PointY="1.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Team" Width="1.5" PointX="11.875" PointY="8.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Products" Width="1.5" PointX="16.375" PointY="8.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Services" Width="1.5" PointX="16.375" PointY="7.125" IsExpanded="false" />
+        <AssociationConnector Association="NEWCO7CORE.UserTeam" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Customers" Width="1.5" PointX="19.125" PointY="8.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Accounts" Width="1.5" PointX="16.375" PointY="9.5" IsExpanded="false" />
+        <InheritanceConnector EntityType="NEWCO7CORE.Customers" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Subscribers" Width="1.5" PointX="16.375" PointY="10.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Opportunities" Width="1.5" PointX="16.375" PointY="11.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Reports" Width="1.5" PointX="16.375" PointY="12.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Segmentations" Width="1.5" PointX="16.375" PointY="14.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="NEWCO7CORE.ProjectTasks" Width="1.5" PointX="19.375" PointY="6" IsExpanded="false" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Tasks" Width="1.5" PointX="21.375" PointY="9" IsExpanded="false" />
+        <InheritanceConnector EntityType="NEWCO7CORE.ProjectTasks" />
+        <AssociationConnector Association="NEWCO7CORE.ProjectTasksProjects" />
+        <EntityTypeShape EntityType="NEWCO7CORE.JobTasks" Width="1.5" PointX="13.375" PointY="10.125" IsExpanded="false" />
+        <InheritanceConnector EntityType="NEWCO7CORE.JobTasks" />
+        <AssociationConnector Association="NEWCO7CORE.JobsJobTasks" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Associations" Width="1.5" PointX="14.125" PointY="8.375" IsExpanded="false" />
+        <AssociationConnector Association="NEWCO7CORE.TeamAssociations" />
+        <AssociationConnector Association="NEWCO7CORE.AssociationsProjects" />
+        <AssociationConnector Association="NEWCO7CORE.AssociationsJobs" />
+        <AssociationConnector Association="NEWCO7CORE.AssociationsServices" />
+        <AssociationConnector Association="NEWCO7CORE.AssociationsProducts" />
+        <AssociationConnector Association="NEWCO7CORE.AssociationsAccounts" />
+        <AssociationConnector Association="NEWCO7CORE.AssociationsSubscribers" />
+        <AssociationConnector Association="NEWCO7CORE.AssociationsOpportunities" />
+        <AssociationConnector Association="NEWCO7CORE.AssociationsReports" />
+        <AssociationConnector Association="NEWCO7CORE.AssociationsSegmentations" />
+        <AssociationConnector Association="NEWCO7CORE.CustomersReferrals" />
+        <AssociationConnector Association="NEWCO7CORE.AssociationsCampaigns" />
+        <EntityTypeShape EntityType="NEWCO7CORE.CostCodeOfAccountsWBS" Width="3.25" PointX="0.5" PointY="5.25" />
+        <EntityTypeShape EntityType="NEWCO7CORE.ScopeChanges" Width="3.25" PointX="7.25" PointY="0.625" />
+        <AssociationConnector Association="NEWCO7CORE.ScopeChangesProjects" />
+        <AssociationConnector Association="NEWCO7CORE.CostCodeOfAccountsCostCodeOfAccounts" />
+        <EntityTypeShape EntityType="NEWCO7CORE.CostCodeOfAccountsPBS" Width="2.125" PointX="3.75" PointY="4.75" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Vendors" Width="1.5" PointX="11.625" PointY="2.875" />
+        <EntityTypeShape EntityType="NEWCO7CORE.BankDetails" Width="1.5" PointX="8.875" PointY="4" />
+        <AssociationConnector Association="NEWCO7CORE.VendorsBankDetails" />
+        <EntityTypeShape EntityType="NEWCO7CORE.PurchasingCompanies" Width="1.5" PointX="11.625" PointY="5.125" />
+        <AssociationConnector Association="NEWCO7CORE.BankDetailsPurchasingCompanies" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Contracts" Width="1.5" PointX="0.75" PointY="2.125" />
+        <AssociationConnector Association="NEWCO7CORE.ContractsVendors" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Trends" Width="1.5" PointX="2.625" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="NEWCO7CORE.TrendsProjects" />
+        <EntityTypeShape EntityType="NEWCO7CORE.Stakeholders" Width="1.5" PointX="4.75" PointY="0.625" />
+        <InheritanceConnector EntityType="NEWCO7CORE.Stakeholders" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
